@@ -89,7 +89,6 @@ zone "franky.D13.com" {
     file "/etc/bind/kaizoku/franky.D13.com";
 };
 ```
-
 ![image](https://user-images.githubusercontent.com/68548653/139520002-79447e34-60d3-42e5-89cb-c3b2b666b7b6.png)
 
 Kemudian buat folder kaizoku pada /etc/bind
@@ -98,8 +97,23 @@ mkdir /etc/bind/kaizoku
 ```
 Pada file franky.D13.com tambahkan konfigurasi berikut.
 ```
-  @ IN  NS  franky.D13.com
-  @ IN  A   192.198.2.2
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@\tIN\tSOA\tfranky.D13.com. root.franky.D13.com. (
+                        2021            ; Serial
+                        604800          ; Refresh
+                        86400           ; Retry
+                        2419200         ; Expire
+                        604800 )        ; Negative Cache TTL
+;
+@               IN      NS              franky.D13.com.
+@               IN      A               192.198.2.2             ;IP EinesLobby
+www             IN      CNAME           franky.D13.com.         ;CNAME Buat Alias
+ns1             IN      A               192.198.2.4             ;IP Skypie
+ns2             IN      A               192.198.2.3             ;IP Water7
+super           IN      NS              ns1
+mecha           IN      NS              ns2'  
 ```
 Lalu restart bind9 dengan perintah `service bind9 restart`
 Pada file **/etc/resolv.conf** untuk node Alabasta dan Loguetown diganti menjadi IP EniesLobby
@@ -111,12 +125,31 @@ Kemudian test ping
 <img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no2.jpeg">
 
 ### 3. Membuat subdomain super.franky.yyy.com dengan alias www.super.franky.yyy.com yang diatur DNS nya di EniesLobby dan mengarah ke Skypie.
-Edit file **/etc/bind/kaizoku/franky.D13.com** dengan menambahkan subdomain untuk franky.D13.com yang mengarah ke IP Skypie seperti berikut.
+Edit file dengan cara `nano /etc/bind/named.conf.local` lalu tambahkan syntax ini.
+```
+zone "super.franky.D13.com" {
+        type master;
+        file "/etc/bind/kaizoku/super.franky.D13.com";
+};
 
-<img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no3%20script.sh.jpeg">
+```
+lalu kita masuk ke dalam file super.franky.D13.com dengan cara, `nano /etc/bind/kaizoku/super.franky.D13.com` dan tambahkan syntax berikut
+```
+$TTL    604800
+@       IN              SOA     super.franky.D13.com. root.super.franky.D13.com. (
+                                2021102601      ; Serial
+                                604800          ; Refresh
+                                86400           ;Retry
+                                2419200         ; Expire
+                                604800 )        ; Negative Cache TTL
+;
+@       IN              NS              super.franky.D13.com.
+@       IN              A               192.198.2.4     ; IP Skypie
+www     IN              CNAME           super.franky.D13.com.
+```
 
 Restart service bind menggunakan `service bind9 restart`
-Kemudian lalukan ping untuk mengecek 
+Kemudian pindah ke node loguetown atau alabasta lalu lakukan ping untuk mengecek apakah domainnya berhasil 
 
 <img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no3.jpeg">
 
@@ -131,8 +164,16 @@ zone "2.198.192.in-addr.arpa" {
 ```
 Lalu pada file **2.198.192.in-addr.arpa** tambahkan konfigurasi berikut.
 ```
-2.198.192.in-addr.arpa.   IN	NS	franky.D13.com.
-2                         IN	PTR	franky.D13.com.
+$TTL  604800
+@       IN       SOA   franky.D13.com. root.franky.D13.com. (
+                        2021102601      ; Serial
+                        604800          ; Refresh
+                        86400           ;Retry
+                        2419200         ; Expire
+                        604800 )        ; Negative Cache TTL
+;
+2.198.192.in-addr.arpa. IN NS franky.D13.com.
+2                       IN PTR franky.D13.com.
 ```
 Lalu restart bind9 
 ```
@@ -167,6 +208,19 @@ zone "franky.D13.com" {
    file "/var/lib/bind/franky.D13.com";
 };
 ```
+
+lalu tambahkan syntax di dalam /etc/bind/named.conf.option di dalam water7 dan enieslobby dengan syntax
+```
+options {
+        directory "/var/cache/bind";
+
+        //dnssec-validation auto;
+        allow-query{any;};
+
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { any; };
+};
+```
 Kemudian restart bind9 dengan perintah `service bind9 restart`
 Lakukan testing 
 - Matikan service bind9 pada EniesLobby dengan perintah `service bind9 stop`
@@ -196,8 +250,19 @@ zone "mecha.franky.D13.com" {
 ```
 Kemudian pada file **mecha.franky.D13.com** tambahkan
 ```
-  @	IN	NS	mecha.franky.D13.com.
-  @	IN	A 	192.198.2.4
+$TTL    604800
+@               IN      SOA     mecha.franky.D13.com. root.mecha.franky.D13.com. (
+                        2021102601      ; Serial
+                        604800          ; Refresh
+                        86400           ;Retry
+                        2419200         ; Expire
+                        604800 )        ; Negative Cache TTL
+;
+@               IN      NS              mecha.franky.D13.com.
+@               IN      A               192.198.2.4     ; IP Skypie
+www             IN      CNAME           mecha.franky.D13.com.
+ns1             IN      A               192.198.2.4
+general         IN      NS              ns1
 ```
 Lalu restart bind9 dengan perintah `service bind9 restart`
 
@@ -207,9 +272,20 @@ Lakukan testing
 <img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no6-2.jpeg">
 
 ### 7. Membuat subdomain melalui Water7 dengan nama general.mecha.franky.yyy.com dengan alias www.general.mecha.franky.yyy.com yang mengarah ke Skypie
-Edit file **/etc/bind/sunnygo/mecha.franky.D13.com** pada Water7, lalu tambahkan subdomain untuk mecha.franky.D13.com yang mengarah ke IP Skypie.
+
+Edit file **/etc/bind/sunnygo/general.mecha.franky.D13.com** pada Water7, lalu tambahkan subdomain untuk mecha.franky.D13.com yang mengarah ke IP Skypie.
 ```
- general	IN	A	192.198.2.4
+$TTL    604800
+@       IN              SOA     general.mecha.franky.D13.com. root.general.mecha.franky.D13.com. (
+                                2021102601              ; Serial
+                                604800                  ; Refresh
+                                86400                   ;Retry
+                                2419200                 ; Expire
+                                604800 )                ; Negative Cache TTL
+;
+@               IN      NS              general.mecha.franky.D13.com.
+@               IN      A               192.198.2.4     ; IP Skypie
+www             IN      CNAME           general.mecha.franky.D13.com.
 ```
 Kemudian restart service bind pada Water7 dan EniesLobby menggunakan perintah `service bind9 restart`
 Kemudian lakukan testing
