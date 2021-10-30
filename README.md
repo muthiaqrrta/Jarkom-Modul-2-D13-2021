@@ -93,6 +93,18 @@ Kemudian buat folder kaizoku pada /etc/bind
 ```
 mkdir /etc/bind/kaizoku
 ```
+Pada file franky.D13.com tambahkan konfigurasi berikut.
+```
+  @ IN  NS  franky.D13.com
+  @ IN  A   192.198.2.2
+```
+Lalu restart bind9 dengan perintah `service bind9 restart`
+Pada file **/etc/resolv.conf** untuk node Alabasta dan Loguetown diganti menjadi IP EniesLobby
+```
+nameserver 192.198.2.2 ;IP EniesLobby
+```
+Kemudian test ping 
+<img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no2.jpeg">
 
 ### 3. Membuat subdomain super.franky.yyy.com dengan alias www.super.franky.yyy.com yang diatur DNS nya di EniesLobby dan mengarah ke Skypie.
 
