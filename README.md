@@ -143,6 +143,41 @@ Berikut merupakan hasil konfigurasinya.
 <img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no4.jpeg">
 
 ### 5. Membuat Water7 sebagai DNS Slave untuk domain utama(Supaya tetap bisa menghubungi Franky jika server EniesLobby rusak)
+Edit file **/etc/bind/named.conf.local** pada EniesLobby sebagai berikut.
+```
+zone "franky.D13.com" {
+   type master;
+   notify yes;
+   also-notify { 192.198.2.3; }; 
+   allow-transfer { 192.198.2.3; }; 
+   file "/etc/bind/kaizoku/franky.D13.com";
+};
+```
+Kemudian restart bind9 dengan perintah `service bind9 restart`
+Lalu pada Water7 lakukan update dan install bind9
+```
+apt-get update
+apt-get install bind9 -y
+```
+Buka file **/etc/bind/named.conf.local** pada Water7 kemudian tambahkan syntax berikut.
+```
+zone "franky.D13.com" {
+   type slave;
+   masters { 192.198.2.2; }; 
+   file "/var/lib/bind/franky.D13.com";
+};
+```
+Kemudian restart bind9 dengan perintah `service bind9 restart`
+Lakukan testing 
+- Matikan service bind9 pada EniesLobby dengan perintah `service bind9 stop`
+- Buka console Alabasta dan Loguetown. kemudian tambahkan nameserver Water7 pada file **/etc/resolv.conf**
+```
+nameserver 192.198.2.2
+nameserver 192.198.2.3
+```
+- Kemudian `ping franky.D13.com`
+
+<img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no5.jpeg">
 
 ### 6. Membuat subdomain melalui Water7 dengan nama general.mecha.franky.yyy.com dengan alias www.general.mecha.franky.yyy.com yang mengarah ke Skypie
 - Loguetown
