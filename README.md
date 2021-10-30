@@ -224,4 +224,7 @@ Kemudian lakukan testing
 <img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no7-2.jpeg">
 
 ## Kendala
-
+- Telnet yang sering unable to connect
+- Tidak dapat meng-update package list `apt-get update`
+- Setiap ingin reload project harus me-bash ulang script.sh dan disitu menemukan banyak error
+- Saat pengerjaan web server, kelompok kami menemukan banyak error seperti kendala pada saat lynx muncul error unable to access document
