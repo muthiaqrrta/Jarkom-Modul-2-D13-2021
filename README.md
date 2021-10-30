@@ -14,7 +14,18 @@ Raihan Alifianto | 05111940000213
 2. Kemudian setiap node saling dihubungkan menggunakan fitur `Add a link`
 3. Lalu lakukan setting network pada setiap node dengan fitur `edit network configuration` seperti berikut. 
    - Foosha
-    
+    ` auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+	address 192.198.1.1
+	netmask 255.255.255.0
+
+auto eth2
+iface eth2 inet static
+	address 192.198.2.1
+	netmask 255.255.255.0`
    - Loguetown
    - Alabasta
    - EniesLobby
