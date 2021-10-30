@@ -81,6 +81,18 @@ Raihan Alifianto | 05111940000213
 	![image](https://user-images.githubusercontent.com/68548653/139518328-cba2515d-6c2b-4127-9b98-31637cf2dd56.png)
 
 ### 2. Membuat website utama dengan mengakses franky.yyy.com dengan alias www.franky.yyy.com pada folder kaizoku. 
+Karen EniesLobby merupakan DNS Server Master, maka pada Enies Lobby jalankan perintah `apt-get update` untuk mengupdate package list. Setelah itu, install aplikasi bind9 dengan perintah `apt-get install bind9 -y`
+Untuk membuat domain **franky.D13.com** lalukan perintah `nano /etc/bind/named.conf.local` lalu isi konfigurasi domain tersebut dengan sintaks berikut.
+```
+zone "franky.D13.com" {
+    type master;
+    file "/etc/bind/kaizoku/franky.D13.com";
+};
+```
+Kemudian buat folder kaizoku pada /etc/bind
+```
+mkdir /etc/bind/kaizoku
+```
 
 ### 3. Membuat subdomain super.franky.yyy.com dengan alias www.super.franky.yyy.com yang diatur DNS nya di EniesLobby dan mengarah ke Skypie.
 
