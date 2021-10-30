@@ -126,7 +126,7 @@ Kemudian tambahkan konfigurasi berikut ke dalam file tersebut. Tambahkan reverse
 ```
 zone "2.198.192.in-addr.arpa" {
    type master;
-   file "/etc/bind/kaizoku/2.36.10.in-addr.arpa";
+   file "/etc/bind/kaizoku/2.198.192.in-addr.arpa";
 };
 ```
 Lalu pada file **2.198.192.in-addr.arpa** tambahkan konfigurasi berikut.
