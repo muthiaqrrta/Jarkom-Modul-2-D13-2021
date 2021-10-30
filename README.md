@@ -207,6 +207,12 @@ Lakukan testing
 <img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no6-2.jpeg">
 
 ### 7. Membuat subdomain melalui Water7 dengan nama general.mecha.franky.yyy.com dengan alias www.general.mecha.franky.yyy.com yang mengarah ke Skypie
+Edit file **/etc/bind/sunnygo/mecha.franky.D13.com** pada Water7, lalu tambahkan subdomain untuk mecha.franky.D13.com yang mengarah ke IP Skypie.
+```
+ general	IN	A	192.198.2.4
+```
+Kemudian restart service bind pada Water7 dan EniesLobby menggunakan perintah `service bind9 restart`
+Kemudian lakukan testing
 - Loguetown
 
 ![image](https://user-images.githubusercontent.com/68548653/139517151-bca3228d-4f28-4f71-9ad0-932a058a4079.png)
