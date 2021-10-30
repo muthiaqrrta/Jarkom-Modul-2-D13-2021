@@ -29,10 +29,45 @@ Raihan Alifianto | 05111940000213
     	netmask 255.255.255.0
    ```
    - Loguetown
+   ```
+   auto eth0
+   iface eth0 inet static
+	   address 192.198.1.2
+	   netmask 255.255.255.0
+	   gateway 192.198.1.1
+   ```
    - Alabasta
+   ```
+   auto eth0
+   iface eth0 inet static
+      address 192.198.1.3
+      netmask 255.255.255.0
+      gateway 192.198.1.1
+   ```
    - EniesLobby
+   ```
+   auto eth0
+   iface eth0 inet static
+      address 192.198.2.2
+      netmask 255.255.255.0
+      gateway 192.198.2.1
+   ```
    - Water7
+   ```
+   auto eth0
+   iface eth0 inet static
+      address 192.198.2.3
+      netmask 255.255.255.0
+      gateway 192.198.2.1
+   ```
    - Skypie
+   ```
+   auto eth0
+   iface eth0 inet static
+      address 192.198.2.4
+      netmask 255.255.255.0
+      gateway 192.198.2.1
+   ```
 ### 2. Membuat website utama dengan mengakses franky.yyy.com dengan alias www.franky.yyy.com pada folder kaizoku. 
 
 ### 3. Membuat subdomain super.franky.yyy.com dengan alias www.super.franky.yyy.com yang diatur DNS nya di EniesLobby dan mengarah ke Skypie.
