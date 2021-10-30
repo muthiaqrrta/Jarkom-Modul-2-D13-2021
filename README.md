@@ -14,6 +14,7 @@ Raihan Alifianto | 05111940000213
 2. Kemudian setiap node saling dihubungkan menggunakan fitur `Add a link`
 3. Lalu lakukan setting network pada setiap node dengan fitur `edit network configuration` seperti berikut. 
    - Foosha
+
     ` auto eth0
 iface eth0 inet dhcp
 
