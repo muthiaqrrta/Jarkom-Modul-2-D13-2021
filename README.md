@@ -220,6 +220,8 @@ Kemudian lakukan testing
 - Alabasta
 
 ![image](https://user-images.githubusercontent.com/68548653/139517170-2310d9c7-3022-4306-b846-8bf9043cf875.png)
+<img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no7.jpeg">
+<img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no7-2.jpeg">
 
 ## Kendala
 
