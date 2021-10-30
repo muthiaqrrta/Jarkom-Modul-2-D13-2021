@@ -115,7 +115,32 @@ Edit file **/etc/bind/kaizoku/franky.e14.com** dengan menambahkan subdomain untu
 
 <img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no3%20script.sh.jpeg">
 
+Restart service bind menggunakan `service bind9 restart`
+Kemudian lalukan ping untuk mengecek 
+
+<img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no3.jpeg">
+
 ### 4. Memreverse domain untuk domain utama
+Buka file **named.conf.local** pada EniesLobby dengan perintah `nano /etc/bind/named.conf.local`
+Kemudian tambahkan konfigurasi berikut ke dalam file tersebut. Tambahkan reverse dari 3 byte awal dari IP yang ingin dilakukan Reverse DNS.
+```
+zone "2.198.192.in-addr.arpa" {
+   type master;
+   file "/etc/bind/kaizoku/2.36.10.in-addr.arpa";
+};
+```
+Lalu pada file **2.198.192.in-addr.arpa** tambahkan konfigurasi berikut.
+```
+2.198.192.in-addr.arpa.   IN	NS	franky.D13.com.
+2                         IN	PTR	franky.D13.com.
+```
+Lalu restart bind9 
+```
+service bind9 restart
+```
+Berikut merupakan hasil konfigurasinya.
+
+<img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no4.jpeg">
 
 ### 5. Membuat Water7 sebagai DNS Slave untuk domain utama(Supaya tetap bisa menghubungi Franky jika server EniesLobby rusak)
 
