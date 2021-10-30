@@ -200,6 +200,7 @@ Kemudian pada file **mecha.franky.D13.com** tambahkan
   @	IN	A 	192.198.2.4
 ```
 Lalu restart bind9 dengan perintah `service bind9 restart`
+
 Lakukan testing pada Loguetown dan Alabasta
 
 
