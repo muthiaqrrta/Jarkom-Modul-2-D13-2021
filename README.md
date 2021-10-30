@@ -10,7 +10,16 @@ Raihan Alifianto | 05111940000213
 ## Soal dan Jawaban
 ### 1. Membuat Topologi/Peta dengan kondisi: EniesLobby akan dijadikan sebagai DNS Master, Water7 akan dijadikan DNS Slave, dan Skypie akan digunakan sebagai Web Server. Terdapat 2 Client yaitu Loguetown, dan Alabasta. Semua node terhubung pada router Foosha, sehingga dapat mengakses internet.
 ![image](https://user-images.githubusercontent.com/68548653/139516863-c7d7a21c-1f58-42b6-a02f-af844349a75d.png)
-
+1. Tambahkan switch, host, router, dan NAT yang diperlukan.
+2. Kemudian setiap node saling dihubungkan menggunakan fitur `Add a link`
+3. Lalu lakukan setting network pada setiap node dengan fitur `edit network configuration` seperti berikut. 
+    - Foosha
+    
+    - Loguetown
+    - Alabasta
+    - EniesLobby
+    - Water7
+    - Skypie
 ### 2. Membuat website utama dengan mengakses franky.yyy.com dengan alias www.franky.yyy.com pada folder kaizoku. 
 
 ### 3. Membuat subdomain super.franky.yyy.com dengan alias www.super.franky.yyy.com yang diatur DNS nya di EniesLobby dan mengarah ke Skypie.
