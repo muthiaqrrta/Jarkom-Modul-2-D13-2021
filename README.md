@@ -111,7 +111,7 @@ Kemudian test ping
 <img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no2.jpeg">
 
 ### 3. Membuat subdomain super.franky.yyy.com dengan alias www.super.franky.yyy.com yang diatur DNS nya di EniesLobby dan mengarah ke Skypie.
-Edit file **/etc/bind/kaizoku/franky.e14.com** dengan menambahkan subdomain untuk franky.D13.com yang mengarah ke IP Skypie seperti berikut.
+Edit file **/etc/bind/kaizoku/franky.D13.com** dengan menambahkan subdomain untuk franky.D13.com yang mengarah ke IP Skypie seperti berikut.
 
 <img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no3%20script.sh.jpeg">
 
