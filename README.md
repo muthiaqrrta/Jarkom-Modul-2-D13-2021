@@ -89,6 +89,9 @@ zone "franky.D13.com" {
     file "/etc/bind/kaizoku/franky.D13.com";
 };
 ```
+
+![image](https://user-images.githubusercontent.com/68548653/139520002-79447e34-60d3-42e5-89cb-c3b2b666b7b6.png)
+
 Kemudian buat folder kaizoku pada /etc/bind
 ```
 mkdir /etc/bind/kaizoku
@@ -108,7 +111,9 @@ Kemudian test ping
 <img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no2.jpeg">
 
 ### 3. Membuat subdomain super.franky.yyy.com dengan alias www.super.franky.yyy.com yang diatur DNS nya di EniesLobby dan mengarah ke Skypie.
+Edit file **/etc/bind/kaizoku/franky.e14.com** dengan menambahkan subdomain untuk franky.D13.com yang mengarah ke IP Skypie seperti berikut.
 
+<img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no3%20script.sh.jpeg">
 
 ### 4. Memreverse domain untuk domain utama
 
