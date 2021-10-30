@@ -68,6 +68,18 @@ Raihan Alifianto | 05111940000213
       netmask 255.255.255.0
       gateway 192.198.2.1
    ```
+4. Setelah itu restart semua node
+5. Kemudian, masukkan `iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.198.0.0/16` pada Foosha
+6. Lalu masukkan `echo nameserver 192.168.122.1 > /etc/resolv.conf` pada semua console node.
+7. Kemudian test ping google.com pada Alabasta dan Loguetown.
+	- Alabasta
+	
+	![image](https://user-images.githubusercontent.com/68548653/139518312-cc2908f4-94dd-4fde-b07f-dbdaed425e16.png)
+
+	- Loguetown 
+	
+	![image](https://user-images.githubusercontent.com/68548653/139518328-cba2515d-6c2b-4127-9b98-31637cf2dd56.png)
+
 ### 2. Membuat website utama dengan mengakses franky.yyy.com dengan alias www.franky.yyy.com pada folder kaizoku. 
 
 ### 3. Membuat subdomain super.franky.yyy.com dengan alias www.super.franky.yyy.com yang diatur DNS nya di EniesLobby dan mengarah ke Skypie.
