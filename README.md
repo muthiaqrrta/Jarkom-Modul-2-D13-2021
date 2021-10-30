@@ -201,8 +201,10 @@ Kemudian pada file **mecha.franky.D13.com** tambahkan
 ```
 Lalu restart bind9 dengan perintah `service bind9 restart`
 
-Lakukan testing pada Loguetown dan Alabasta
+Lakukan testing 
 
+<img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no6.jpeg">
+<img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no6-2.jpeg">
 
 ### 7. Membuat subdomain melalui Water7 dengan nama general.mecha.franky.yyy.com dengan alias www.general.mecha.franky.yyy.com yang mengarah ke Skypie
 - Loguetown
