@@ -104,6 +104,7 @@ Pada file **/etc/resolv.conf** untuk node Alabasta dan Loguetown diganti menjadi
 nameserver 192.198.2.2 ;IP EniesLobby
 ```
 Kemudian test ping 
+
 <img src = "https://github.com/muthiaqrrta/Jarkom-Modul-2-D13-2021/blob/main/screenshot/no2.jpeg">
 
 ### 3. Membuat subdomain super.franky.yyy.com dengan alias www.super.franky.yyy.com yang diatur DNS nya di EniesLobby dan mengarah ke Skypie.
