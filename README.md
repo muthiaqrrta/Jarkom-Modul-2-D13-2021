@@ -201,11 +201,11 @@ Kemudian pada file **mecha.franky.D13.com** tambahkan
 ```
 Lalu restart bind9 dengan perintah `service bind9 restart`
 Lakukan testing pada Loguetown dan Alabasta
-	- Loguetown
+- Loguetown
 
 ![image](https://user-images.githubusercontent.com/68548653/139517151-bca3228d-4f28-4f71-9ad0-932a058a4079.png)
 
-	- Alabasta
+- Alabasta
 
 ![image](https://user-images.githubusercontent.com/68548653/139517170-2310d9c7-3022-4306-b846-8bf9043cf875.png)
 
